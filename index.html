@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+  
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="lib/jquery-3.2.1.min.js"></script>
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/onsen/js/onsenui.js"></script>
+    <script src="./controller.js"></script>
+	<script src="js.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <title>COFFEEtime</title>
+	<link rel="shortcut icon" href="img/logo.png"/>
+  </head>
+  
+  <body>
+
+    <div var="navi" ng-controller="AppController" var="appController">
+      
+        <header class="toolbar">
+				<section class="center">
+					<article id="myDIV">
+							<a href="#items" class="scroll"><img src="img/logo.png"/></a>
+					</article><h1>COFFEEtime</h1>
+				  
+
+				</section>
+				<section class="right">
+					<h1>Do you want hot coffee?</h1><br/>
+					<a href="#items"class="scroll"><h3 align="center">Tap HERE</h3></a>
+					<h2>HURRY UP and ENJOY</h2>
+		
+				</section>
+        </header>
+					<section class="head" id="items"><h1>Top open coffee places near you</h1></h1>
+						
+					</section>
+        
+					<section ng-show="obj.state == 'noResult'" class="noResults">No results found
+					</section>
+        <section ng-show="obj.state == 'loaded'" class="myList fullHeight">
+        <div modifier="tappable" ng-click="cellClick(venue.venueID, $event)"
+          ng-repeat="venue in venues">
+			
+            <section class="item">
+              <figure width="100px">
+					<img class="shop" ng-src="{{venue.picture_url}}" />
+              </figure>
+              <section>
+					<article class="item-row">
+						  <div class="shopTitle">
+							<h1>{{venue.title}}</h1>
+						  
+						  </div>
+					</article>
+					<article class="item-row2">
+					
+						<div width="50px">
+
+								<i>{{venue.price}}</i>
+							<div>
+							</div>
+							<div>
+							<div>
+							<br/>
+									{{venue.place}}
+							</div>
+							</div>
+							<div>
+								<br/>
+								<b>{{venue.category}}</b>
+							</div>
+						</div>
+			
+					</article>
+				</section>
+				</section>
+  
+        </div>
+		</section>
+		<footer class="footer"><h4>Made by <b>Aleksandar Radovanovic</b></h4></footer>
+  </body>
+</html>
